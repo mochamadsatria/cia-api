@@ -1,0 +1,152 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/prisma/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model SBCTeam {
+  id  Int @id @default(autoincrement())
+  university  String
+  team_name String
+  bridge_name String
+  university_address  String
+  study_address String
+
+  members SBCMember[]
+
+  lecturer  SBCLecturer @relation(fields: [lecturer_id], references: [id])
+  lecturer_id  Int  @unique
+
+  payment_proof  Payment @relation(fields: [payment_proof_id], references: [id])
+  payment_proof_id  Int  @unique
+
+  truth_statement Boolean
+  stc_statement Boolean
+  finalized_at  DateTime
+}
+
+model SBCMember {
+  id  Int @id @default(autoincrement())
+  name  String
+  student_id  String
+  study_major String
+  semester  Int
+  address String?
+  email String
+  whatsapp  String
+  line_id String
+  student_card String
+  student_proof String
+  photo String
+
+  is_leader Boolean
+
+  team  SBCTeam @relation(fields: [team_id], references: [id])
+  team_id Int
+}
+
+model SBCLecturer {
+  id  Int @id @default(autoincrement())
+  name  String
+  profession_id String
+  address String?
+  email String
+  whatsapp  String
+  photo String
+
+  team SBCTeam?
+}
+
+model Payment {
+  id  Int @id @default(autoincrement())
+  proof String
+
+  sbc_team SBCTeam?
+  cic_team  CICTeam?
+}
+
+model FCECMember {
+  id  Int @id @default(autoincrement())
+  name  String
+  email String
+  whatsapp  String
+  line_id String
+  student_card String
+  student_proof String
+  twibbon_proof String
+  photo String
+
+  is_leader Boolean
+
+  team  FCECTeam @relation(fields: [team_id], references: [id])
+  team_id Int
+}
+
+model FCECTeam {
+  id  Int @id @default(autoincrement())
+  school  String
+  lecturer_name String
+  abstract_title  String
+  team_name String
+  originality_letter  String
+  
+  abstract  String
+
+  members FCECMember[]
+
+  finalized_at  DateTime
+}
+
+model CICMember {
+  id  Int @id @default(autoincrement())
+  name  String
+  email String
+  whatsapp  String
+  line_id String
+  student_card String
+  student_proof String
+  photo String
+  study_major String
+  generation  String
+
+  is_leader Boolean
+
+  team  CICTeam @relation(fields: [team_id], references: [id])
+  team_id Int
+}
+
+model CICTeam {
+  id  Int @id @default(autoincrement())
+  team_name String
+  university  String
+
+  payment_proof  Payment @relation(fields: [payment_proof_id], references: [id])
+  payment_proof_id  Int  @unique
+
+  members CICMember[]
+
+  truth_statement Boolean
+  stc_statement Boolean
+  finalized_at  DateTime
+}
+
+model Announcement {
+  id  Int @id @default(autoincrement()) 
+  event String
+  message  String
+  published_at DateTime
+}
+
+model Service {
+  id  Int @id @default(autoincrement()) 
+  service String  @unique
+  active  Boolean
+}
