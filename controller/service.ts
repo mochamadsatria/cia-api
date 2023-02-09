@@ -8,7 +8,13 @@ const serviceRouter = Router();
 
 serviceRouter.use(rateLimiter);
 
-serviceRouter.use(cors());
+serviceRouter.use(
+  cors({
+    origin: [/\.ciaugm\.com$/],
+    methods: ["GET", "PUT"],
+    optionsSuccessStatus: 200,
+  })
+);
 
 serviceRouter.put("/", requiresAuth(), async (req, res) => {
   const data = req.body;

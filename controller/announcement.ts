@@ -9,7 +9,13 @@ const announcementRouter = Router();
 
 announcementRouter.use(rateLimiter);
 
-announcementRouter.use(cors());
+announcementRouter.use(
+  cors({
+    origin: [/\.ciaugm\.com$/],
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    optionsSuccessStatus: 200,
+  })
+);
 
 announcementRouter.post("/", requiresAuth(), async (req, res) => {
   const data = req.body;

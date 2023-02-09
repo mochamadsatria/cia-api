@@ -7,7 +7,13 @@ const responseRouter = Router();
 
 responseRouter.use(rateLimiter);
 
-responseRouter.use(cors());
+responseRouter.use(
+  cors({
+    origin: [/\.ciaugm\.com$/],
+    methods: ["GET"],
+    optionsSuccessStatus: 200,
+  })
+);
 
 responseRouter.get("/", async (req, res) => {
   const { event } = req.query;
