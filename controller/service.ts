@@ -16,9 +16,12 @@ serviceRouter.use(
   })
 );
 
+serviceRouter.use(cors());
+
 serviceRouter.put(
   "/",
   auth({
+    secret: process.env.ALG_SECRET,
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER_BASE_URL,
     tokenSigningAlg: "HS256",
@@ -38,6 +41,7 @@ serviceRouter.put(
 
       res.status(200).json({ success: true });
     } catch (error) {
+      console.log(error);
       res.status(400).json({ success: false });
     }
   }
@@ -53,7 +57,7 @@ serviceRouter.get("/", async (req, res) => {
       },
     });
 
-    res.json(serviceData);
+    res.status(200).json(serviceData);
   } catch (error) {
     res.status(400).json({ success: false });
   }

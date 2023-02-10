@@ -20,6 +20,7 @@ announcementRouter.use(
 announcementRouter.post(
   "/",
   auth({
+    secret: process.env.ALG_SECRET,
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER_BASE_URL,
     tokenSigningAlg: "HS256",
@@ -46,6 +47,7 @@ announcementRouter.post(
 announcementRouter.put(
   "/",
   auth({
+    secret: process.env.ALG_SECRET,
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER_BASE_URL,
     tokenSigningAlg: "HS256",
@@ -90,6 +92,7 @@ announcementRouter.get("/", async (req, res) => {
 announcementRouter.delete(
   "/",
   auth({
+    secret: process.env.ALG_SECRET,
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER_BASE_URL,
     tokenSigningAlg: "HS256",

@@ -143,7 +143,9 @@ declare type ComputedFieldsMap = {
     [fieldName: string]: ComputedField;
 };
 
-declare type ConnectorType = 'mysql' | 'mongodb' | 'sqlite' | 'postgresql' | 'sqlserver' | 'jdbc:sqlserver' | 'cockroachdb';
+declare type ConnectorType = 'mysql' | 'mongodb' | 'sqlite' | 'postgresql' | 'postgres' | 'sqlserver' | 'cockroachdb' | 'jdbc:sqlserver';
+
+declare type ConnectorType_2 = 'mysql' | 'mongodb' | 'sqlite' | 'postgresql' | 'sqlserver' | 'jdbc:sqlserver' | 'cockroachdb';
 
 declare interface Context {
     /**
@@ -211,6 +213,15 @@ declare type DataLoaderOptions<T> = {
     batchLoader: (request: T[]) => Promise<any[]>;
     batchBy: (request: T) => string | undefined;
 };
+
+declare interface DataSource {
+    name: string;
+    provider: ConnectorType;
+    activeProvider: ConnectorType;
+    url: EnvValue;
+    directUrl?: EnvValue;
+    schemas: string[] | [];
+}
 
 declare type Datasource = {
     url?: string;
@@ -531,13 +542,13 @@ declare type DefaultArgs = InternalArgs<{}, {}, {}, {}>;
 
 declare function defineExtension(ext: Args | ((client: Client) => Client)): (client: Client) => Client;
 
-declare interface Dictionary<T> {
-    [key: string]: T;
-}
-
-declare type Dictionary_2<T> = {
+declare type Dictionary<T> = {
     [key: string]: T;
 };
+
+declare interface Dictionary_2<T> {
+    [key: string]: T;
+}
 
 export declare namespace DMMF {
     export interface Document {
@@ -775,22 +786,22 @@ export declare class DMMFClass {
 
 declare class DMMFDatamodelHelper implements Pick<DMMF.Document, 'datamodel'> {
     datamodel: DMMF.Datamodel;
-    datamodelEnumMap: Dictionary<DMMF.DatamodelEnum>;
-    modelMap: Dictionary<DMMF.Model>;
-    typeMap: Dictionary<DMMF.Model>;
-    typeAndModelMap: Dictionary<DMMF.Model>;
+    datamodelEnumMap: Dictionary_2<DMMF.DatamodelEnum>;
+    modelMap: Dictionary_2<DMMF.Model>;
+    typeMap: Dictionary_2<DMMF.Model>;
+    typeAndModelMap: Dictionary_2<DMMF.Model>;
     constructor({ datamodel }: Pick<DMMF.Document, 'datamodel'>);
-    getDatamodelEnumMap(): Dictionary<DMMF.DatamodelEnum>;
-    getModelMap(): Dictionary<DMMF.Model>;
-    getTypeMap(): Dictionary<DMMF.Model>;
-    getTypeModelMap(): Dictionary<DMMF.Model>;
+    getDatamodelEnumMap(): Dictionary_2<DMMF.DatamodelEnum>;
+    getModelMap(): Dictionary_2<DMMF.Model>;
+    getTypeMap(): Dictionary_2<DMMF.Model>;
+    getTypeModelMap(): Dictionary_2<DMMF.Model>;
 }
 
 declare class DMMFMappingsHelper implements Pick<DMMF.Document, 'mappings'> {
     mappings: DMMF.Mappings;
-    mappingsMap: Dictionary<DMMF.ModelMapping>;
+    mappingsMap: Dictionary_2<DMMF.ModelMapping>;
     constructor({ mappings }: Pick<DMMF.Document, 'mappings'>);
-    getMappingsMap(): Dictionary<DMMF.ModelMapping>;
+    getMappingsMap(): Dictionary_2<DMMF.ModelMapping>;
 }
 
 declare class DMMFSchemaHelper implements Pick<DMMF.Document, 'schema'> {
@@ -801,14 +812,14 @@ declare class DMMFSchemaHelper implements Pick<DMMF.Document, 'schema'> {
         model: DMMF.OutputType[];
         prisma: DMMF.OutputType[];
     };
-    outputTypeMap: Dictionary<DMMF.OutputType>;
+    outputTypeMap: Dictionary_2<DMMF.OutputType>;
     inputObjectTypes: {
         model?: DMMF.InputType[];
         prisma: DMMF.InputType[];
     };
-    inputTypeMap: Dictionary<DMMF.InputType>;
-    enumMap: Dictionary<DMMF.SchemaEnum>;
-    rootFieldMap: Dictionary<DMMF.SchemaField>;
+    inputTypeMap: Dictionary_2<DMMF.InputType>;
+    enumMap: Dictionary_2<DMMF.SchemaEnum>;
+    rootFieldMap: Dictionary_2<DMMF.SchemaField>;
     constructor({ schema }: Pick<DMMF.Document, 'schema'>);
     get [Symbol.toStringTag](): string;
     outputTypeToMergedOutputType: (outputType: DMMF.OutputType) => DMMF.OutputType;
@@ -821,11 +832,11 @@ declare class DMMFSchemaHelper implements Pick<DMMF.Document, 'schema'> {
         model: DMMF.OutputType[];
         prisma: DMMF.OutputType[];
     };
-    getEnumMap(): Dictionary<DMMF.SchemaEnum>;
+    getEnumMap(): Dictionary_2<DMMF.SchemaEnum>;
     hasEnumInNamespace(enumName: string, namespace: 'prisma' | 'model'): boolean;
-    getMergedOutputTypeMap(): Dictionary<DMMF.OutputType>;
-    getInputTypeMap(): Dictionary<DMMF.InputType>;
-    getRootFieldMap(): Dictionary<DMMF.SchemaField>;
+    getMergedOutputTypeMap(): Dictionary_2<DMMF.OutputType>;
+    getInputTypeMap(): Dictionary_2<DMMF.InputType>;
+    getRootFieldMap(): Dictionary_2<DMMF.SchemaField>;
 }
 
 declare class Document_2 {
@@ -876,6 +887,7 @@ export declare abstract class Engine<InteractiveTransactionPayload = unknown> {
     abstract on(event: EngineEventType, listener: (args?: any) => any): void;
     abstract start(): Promise<void>;
     abstract stop(): Promise<void>;
+    abstract getConfig(): Promise<GetConfigResult>;
     abstract getDmmf(): Promise<DMMF.Document>;
     abstract version(forceRun?: boolean): Promise<string> | string;
     abstract request<T>(query: EngineQuery, options: RequestOptions<InteractiveTransactionPayload>): Promise<QueryEngineResult<T>>;
@@ -1044,7 +1056,7 @@ declare interface GeneratorConfig {
     output: EnvValue | null;
     isCustomOutput?: boolean;
     provider: EnvValue;
-    config: Dictionary_2<string>;
+    config: Dictionary<string>;
     binaryTargets: BinaryTargetsEnvValue[];
     previewFeatures: string[];
 }
@@ -1059,6 +1071,11 @@ declare type GetBatchResult<P, A> = {
 
 declare type GetClient<Base extends Record<any, any>, C extends Args_3['client']> = Omit<Base, keyof C | '$use'> & {
     [K in keyof C]: ReturnType<C[K]>;
+};
+
+declare type GetConfigResult = {
+    datasources: DataSource[];
+    generators: GeneratorConfig[];
 };
 
 declare type GetCountResult<P, A> = A extends {
@@ -1121,6 +1138,10 @@ export declare function getPrismaClient(config: GetPrismaClientConfig): {
         _clientEngineType: ClientEngineType;
         _tracingConfig: TracingConfig;
         _metrics: MetricsClient;
+        _getConfigPromise?: Promise<{
+            datasources: DataSource[];
+            generators: GeneratorConfig[];
+        }> | undefined;
         _middlewares: MiddlewareHandler<QueryMiddleware>;
         _previewFeatures: string[];
         _activeProvider: string;
@@ -1143,6 +1164,7 @@ export declare function getPrismaClient(config: GetPrismaClientConfig): {
          * Disconnect from the database
          */
         $disconnect(): Promise<void>;
+        _getActiveProvider(): Promise<void>;
         /**
          * Executes a raw query and always returns a number
          */
@@ -1389,8 +1411,8 @@ declare type InternalArgs<R extends RequiredArgs['result'] = RequiredArgs['resul
 
 declare interface InternalDatasource {
     name: string;
-    activeProvider: ConnectorType;
-    provider: ConnectorType;
+    activeProvider: ConnectorType_2;
+    provider: ConnectorType_2;
     url: EnvValue_2;
     config: any;
 }
