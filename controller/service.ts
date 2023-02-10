@@ -21,6 +21,7 @@ serviceRouter.put(
   auth({
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER_BASE_URL,
+    tokenSigningAlg: "HS256",
   }),
   async (req, res) => {
     const data = req.body;
