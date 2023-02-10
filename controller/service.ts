@@ -1,6 +1,6 @@
 import cors from "cors";
 import { Router } from "express";
-import { requiresAuth } from "express-openid-connect";
+import { auth } from "express-oauth2-jwt-bearer";
 import prisma from "../lib/prisma";
 import rateLimiter from "../utils/rateLimiter";
 
@@ -16,24 +16,32 @@ serviceRouter.use(
   })
 );
 
-serviceRouter.put("/", requiresAuth(), async (req, res) => {
-  const data = req.body;
+serviceRouter.put(
+  "/",
+  auth({
+    audience: process.env.AUDIENCE,
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
+    tokenSigningAlg: "RS256",
+  }),
+  async (req, res) => {
+    const data = req.body;
 
-  try {
-    await prisma.service.update({
-      where: {
-        service: data.service,
-      },
-      data: {
-        active: data.active,
-      },
-    });
+    try {
+      await prisma.service.update({
+        where: {
+          service: data.service,
+        },
+        data: {
+          active: data.active,
+        },
+      });
 
-    res.status(200).json({ success: true });
-  } catch (error) {
-    res.status(400).json({ success: false });
+      res.status(200).json({ success: true });
+    } catch (error) {
+      res.status(400).json({ success: false });
+    }
   }
-});
+);
 
 serviceRouter.get("/", async (req, res) => {
   const { service } = req.query;

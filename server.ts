@@ -2,7 +2,6 @@
 //dotenv.config();
 
 import express from "express";
-import { auth } from "express-openid-connect";
 import helmet from "helmet";
 import announcementRouter from "./controller/announcement";
 import cicRouter from "./controller/events/cic";
@@ -18,17 +17,6 @@ const app = express();
 app.use(secureHost);
 
 app.use(express.json());
-
-app.use(
-  auth({
-    authRequired: false,
-    auth0Logout: true,
-    secret: process.env.SECRET,
-    baseURL: process.env.BASE_URL,
-    clientID: process.env.CLIENT_ID,
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-  })
-);
 
 app.use(helmet());
 
