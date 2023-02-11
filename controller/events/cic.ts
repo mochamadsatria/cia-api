@@ -10,13 +10,13 @@ const cicRouter = Router();
 
 cicRouter.use(rateLimiter);
 
-/*cicRouter.use(
+cicRouter.use(
   cors({
     origin: [/\.ciaugm\.com$/],
     methods: ["POST"],
     optionsSuccessStatus: 200,
   })
-);*/
+);
 
 cicRouter.post("/", async (req, res) => {
   const service = await prisma.service.findFirst({

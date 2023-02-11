@@ -1,7 +1,6 @@
 import cors from "cors";
 import dayjs from "dayjs";
 import { Router } from "express";
-import { auth } from "express-oauth2-jwt-bearer";
 import prisma from "../lib/prisma";
 import rateLimiter from "../utils/rateLimiter";
 
@@ -19,12 +18,7 @@ announcementRouter.use(
 
 announcementRouter.post(
   "/",
-  auth({
-    secret: process.env.ALG_SECRET,
-    audience: process.env.AUDIENCE,
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    tokenSigningAlg: "HS256",
-  }),
+
   async (req, res) => {
     const data = req.body;
 
@@ -46,12 +40,7 @@ announcementRouter.post(
 
 announcementRouter.put(
   "/",
-  auth({
-    secret: process.env.ALG_SECRET,
-    audience: process.env.AUDIENCE,
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    tokenSigningAlg: "HS256",
-  }),
+
   async (req, res) => {
     const data = req.body;
 
@@ -91,12 +80,7 @@ announcementRouter.get("/", async (req, res) => {
 
 announcementRouter.delete(
   "/",
-  auth({
-    secret: process.env.ALG_SECRET,
-    audience: process.env.AUDIENCE,
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    tokenSigningAlg: "HS256",
-  }),
+
   async (req, res) => {
     const { id } = req.query;
 

@@ -10,13 +10,13 @@ const sbcRouter = Router();
 
 sbcRouter.use(rateLimiter);
 
-/*sbcRouter.use(
+sbcRouter.use(
   cors({
     origin: [/\.ciaugm\.com$/],
     methods: ["POST"],
     optionsSuccessStatus: 200,
   })
-);*/
+);
 
 sbcRouter.post("/", async (req, res) => {
   const service = await prisma.service.findFirst({

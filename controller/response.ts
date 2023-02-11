@@ -1,6 +1,6 @@
 import cors from "cors";
 import { Router } from "express";
-import { auth } from "express-oauth2-jwt-bearer";
+
 import prisma from "../lib/prisma";
 import rateLimiter from "../utils/rateLimiter";
 
@@ -18,12 +18,7 @@ responseRouter.use(
 
 responseRouter.get(
   "/",
-  auth({
-    secret: process.env.ALG_SECRET,
-    audience: process.env.AUDIENCE,
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    tokenSigningAlg: "HS256",
-  }),
+
   async (req, res) => {
     const { event } = req.query;
 

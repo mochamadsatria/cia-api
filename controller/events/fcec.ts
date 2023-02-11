@@ -10,13 +10,13 @@ const fcecRouter = Router();
 
 fcecRouter.use(rateLimiter);
 
-/*fcecRouter.use(
+fcecRouter.use(
   cors({
     origin: [/\.ciaugm\.com$/],
     methods: ["POST"],
     optionsSuccessStatus: 200,
   })
-);*/
+);
 
 fcecRouter.post("/", async (req, res) => {
   const service = await prisma.service.findFirst({
