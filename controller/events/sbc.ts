@@ -49,7 +49,7 @@ sbcRouter.post("/", async (req, res) => {
               study_major: member.study_major,
               is_leader: member.is_leader,
               student_id: member.student_id,
-              semester: member.semester,
+              semester: parseInt(member.semester),
             })),
           },
           lecturer: {
@@ -85,7 +85,7 @@ sbcRouter.post("/", async (req, res) => {
             return res.status(200).json({ success: true });
           });
     } catch (error) {
-      res.status(400).json({ success: false });
+      res.status(400).json(error);
     }
   }
 });

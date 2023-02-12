@@ -28,7 +28,7 @@ cicRouter.post("/", async (req, res) => {
   if (!service?.active)
     res.status(400).send("CIC Tidak aktif menerima pendaftaran!");
   else {
-    const data = req.body;
+    const data: any = req.body;
 
     try {
       const result = await prisma.cICTeam.create({

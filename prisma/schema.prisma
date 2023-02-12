@@ -42,6 +42,7 @@ model SBCMember {
   line_id String
 
   twibbon_proof String
+  
   student_card String
   student_proof String
   photo String
