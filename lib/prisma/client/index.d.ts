@@ -19,8 +19,6 @@ export type SBCTeam = {
   university: string
   team_name: string
   bridge_name: string
-  university_address: string
-  study_address: string
   lecturer_id: number
   payment_proof_id: number
   truth_statement: boolean
@@ -38,10 +36,10 @@ export type SBCMember = {
   student_id: string
   study_major: string
   semester: number
-  address: string | null
   email: string
   whatsapp: string
   line_id: string
+  twibbon_proof: string
   student_card: string
   student_proof: string
   photo: string
@@ -57,7 +55,6 @@ export type SBCLecturer = {
   id: number
   name: string
   profession_id: string
-  address: string | null
   email: string
   whatsapp: string
   photo: string
@@ -1178,8 +1175,6 @@ export namespace Prisma {
     university: string | null
     team_name: string | null
     bridge_name: string | null
-    university_address: string | null
-    study_address: string | null
     lecturer_id: number | null
     payment_proof_id: number | null
     truth_statement: boolean | null
@@ -1192,8 +1187,6 @@ export namespace Prisma {
     university: string | null
     team_name: string | null
     bridge_name: string | null
-    university_address: string | null
-    study_address: string | null
     lecturer_id: number | null
     payment_proof_id: number | null
     truth_statement: boolean | null
@@ -1206,8 +1199,6 @@ export namespace Prisma {
     university: number
     team_name: number
     bridge_name: number
-    university_address: number
-    study_address: number
     lecturer_id: number
     payment_proof_id: number
     truth_statement: number
@@ -1234,8 +1225,6 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
-    university_address?: true
-    study_address?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1248,8 +1237,6 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
-    university_address?: true
-    study_address?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1262,8 +1249,6 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
-    university_address?: true
-    study_address?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1364,8 +1349,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -1397,8 +1380,6 @@ export namespace Prisma {
     university?: boolean
     team_name?: boolean
     bridge_name?: boolean
-    university_address?: boolean
-    study_address?: boolean
     members?: boolean | SBCTeam$membersArgs
     lecturer?: boolean | SBCLecturerArgs
     lecturer_id?: boolean
@@ -2237,10 +2218,10 @@ export namespace Prisma {
     student_id: string | null
     study_major: string | null
     semester: number | null
-    address: string | null
     email: string | null
     whatsapp: string | null
     line_id: string | null
+    twibbon_proof: string | null
     student_card: string | null
     student_proof: string | null
     photo: string | null
@@ -2254,10 +2235,10 @@ export namespace Prisma {
     student_id: string | null
     study_major: string | null
     semester: number | null
-    address: string | null
     email: string | null
     whatsapp: string | null
     line_id: string | null
+    twibbon_proof: string | null
     student_card: string | null
     student_proof: string | null
     photo: string | null
@@ -2271,10 +2252,10 @@ export namespace Prisma {
     student_id: number
     study_major: number
     semester: number
-    address: number
     email: number
     whatsapp: number
     line_id: number
+    twibbon_proof: number
     student_card: number
     student_proof: number
     photo: number
@@ -2302,10 +2283,10 @@ export namespace Prisma {
     student_id?: true
     study_major?: true
     semester?: true
-    address?: true
     email?: true
     whatsapp?: true
     line_id?: true
+    twibbon_proof?: true
     student_card?: true
     student_proof?: true
     photo?: true
@@ -2319,10 +2300,10 @@ export namespace Prisma {
     student_id?: true
     study_major?: true
     semester?: true
-    address?: true
     email?: true
     whatsapp?: true
     line_id?: true
+    twibbon_proof?: true
     student_card?: true
     student_proof?: true
     photo?: true
@@ -2336,10 +2317,10 @@ export namespace Prisma {
     student_id?: true
     study_major?: true
     semester?: true
-    address?: true
     email?: true
     whatsapp?: true
     line_id?: true
+    twibbon_proof?: true
     student_card?: true
     student_proof?: true
     photo?: true
@@ -2441,10 +2422,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -2477,10 +2458,10 @@ export namespace Prisma {
     student_id?: boolean
     study_major?: boolean
     semester?: boolean
-    address?: boolean
     email?: boolean
     whatsapp?: boolean
     line_id?: boolean
+    twibbon_proof?: boolean
     student_card?: boolean
     student_proof?: boolean
     photo?: boolean
@@ -3276,7 +3257,6 @@ export namespace Prisma {
     id: number | null
     name: string | null
     profession_id: string | null
-    address: string | null
     email: string | null
     whatsapp: string | null
     photo: string | null
@@ -3286,7 +3266,6 @@ export namespace Prisma {
     id: number | null
     name: string | null
     profession_id: string | null
-    address: string | null
     email: string | null
     whatsapp: string | null
     photo: string | null
@@ -3296,7 +3275,6 @@ export namespace Prisma {
     id: number
     name: number
     profession_id: number
-    address: number
     email: number
     whatsapp: number
     photo: number
@@ -3316,7 +3294,6 @@ export namespace Prisma {
     id?: true
     name?: true
     profession_id?: true
-    address?: true
     email?: true
     whatsapp?: true
     photo?: true
@@ -3326,7 +3303,6 @@ export namespace Prisma {
     id?: true
     name?: true
     profession_id?: true
-    address?: true
     email?: true
     whatsapp?: true
     photo?: true
@@ -3336,7 +3312,6 @@ export namespace Prisma {
     id?: true
     name?: true
     profession_id?: true
-    address?: true
     email?: true
     whatsapp?: true
     photo?: true
@@ -3434,7 +3409,6 @@ export namespace Prisma {
     id: number
     name: string
     profession_id: string
-    address: string | null
     email: string
     whatsapp: string
     photo: string
@@ -3463,7 +3437,6 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     profession_id?: boolean
-    address?: boolean
     email?: boolean
     whatsapp?: boolean
     photo?: boolean
@@ -11150,7 +11123,6 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     profession_id: 'profession_id',
-    address: 'address',
     email: 'email',
     whatsapp: 'whatsapp',
     photo: 'photo'
@@ -11165,10 +11137,10 @@ export namespace Prisma {
     student_id: 'student_id',
     study_major: 'study_major',
     semester: 'semester',
-    address: 'address',
     email: 'email',
     whatsapp: 'whatsapp',
     line_id: 'line_id',
+    twibbon_proof: 'twibbon_proof',
     student_card: 'student_card',
     student_proof: 'student_proof',
     photo: 'photo',
@@ -11184,8 +11156,6 @@ export namespace Prisma {
     university: 'university',
     team_name: 'team_name',
     bridge_name: 'bridge_name',
-    university_address: 'university_address',
-    study_address: 'study_address',
     lecturer_id: 'lecturer_id',
     payment_proof_id: 'payment_proof_id',
     truth_statement: 'truth_statement',
@@ -11236,8 +11206,6 @@ export namespace Prisma {
     university?: StringFilter | string
     team_name?: StringFilter | string
     bridge_name?: StringFilter | string
-    university_address?: StringFilter | string
-    study_address?: StringFilter | string
     members?: SBCMemberListRelationFilter
     lecturer?: XOR<SBCLecturerRelationFilter, SBCLecturerWhereInput>
     lecturer_id?: IntFilter | number
@@ -11253,8 +11221,6 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
-    university_address?: SortOrder
-    study_address?: SortOrder
     members?: SBCMemberOrderByRelationAggregateInput
     lecturer?: SBCLecturerOrderByWithRelationInput
     lecturer_id?: SortOrder
@@ -11276,8 +11242,6 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
-    university_address?: SortOrder
-    study_address?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -11298,8 +11262,6 @@ export namespace Prisma {
     university?: StringWithAggregatesFilter | string
     team_name?: StringWithAggregatesFilter | string
     bridge_name?: StringWithAggregatesFilter | string
-    university_address?: StringWithAggregatesFilter | string
-    study_address?: StringWithAggregatesFilter | string
     lecturer_id?: IntWithAggregatesFilter | number
     payment_proof_id?: IntWithAggregatesFilter | number
     truth_statement?: BoolWithAggregatesFilter | boolean
@@ -11316,10 +11278,10 @@ export namespace Prisma {
     student_id?: StringFilter | string
     study_major?: StringFilter | string
     semester?: IntFilter | number
-    address?: StringNullableFilter | string | null
     email?: StringFilter | string
     whatsapp?: StringFilter | string
     line_id?: StringFilter | string
+    twibbon_proof?: StringFilter | string
     student_card?: StringFilter | string
     student_proof?: StringFilter | string
     photo?: StringFilter | string
@@ -11334,10 +11296,10 @@ export namespace Prisma {
     student_id?: SortOrder
     study_major?: SortOrder
     semester?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     line_id?: SortOrder
+    twibbon_proof?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
     photo?: SortOrder
@@ -11356,10 +11318,10 @@ export namespace Prisma {
     student_id?: SortOrder
     study_major?: SortOrder
     semester?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     line_id?: SortOrder
+    twibbon_proof?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
     photo?: SortOrder
@@ -11381,10 +11343,10 @@ export namespace Prisma {
     student_id?: StringWithAggregatesFilter | string
     study_major?: StringWithAggregatesFilter | string
     semester?: IntWithAggregatesFilter | number
-    address?: StringNullableWithAggregatesFilter | string | null
     email?: StringWithAggregatesFilter | string
     whatsapp?: StringWithAggregatesFilter | string
     line_id?: StringWithAggregatesFilter | string
+    twibbon_proof?: StringWithAggregatesFilter | string
     student_card?: StringWithAggregatesFilter | string
     student_proof?: StringWithAggregatesFilter | string
     photo?: StringWithAggregatesFilter | string
@@ -11399,7 +11361,6 @@ export namespace Prisma {
     id?: IntFilter | number
     name?: StringFilter | string
     profession_id?: StringFilter | string
-    address?: StringNullableFilter | string | null
     email?: StringFilter | string
     whatsapp?: StringFilter | string
     photo?: StringFilter | string
@@ -11410,7 +11371,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     profession_id?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     photo?: SortOrder
@@ -11425,7 +11385,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     profession_id?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     photo?: SortOrder
@@ -11443,7 +11402,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter | number
     name?: StringWithAggregatesFilter | string
     profession_id?: StringWithAggregatesFilter | string
-    address?: StringNullableWithAggregatesFilter | string | null
     email?: StringWithAggregatesFilter | string
     whatsapp?: StringWithAggregatesFilter | string
     photo?: StringWithAggregatesFilter | string
@@ -11846,8 +11804,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
@@ -11861,8 +11817,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     lecturer_id: number
     payment_proof_id: number
@@ -11875,8 +11829,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
@@ -11890,8 +11842,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
@@ -11905,8 +11855,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -11918,8 +11866,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
     stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11930,8 +11876,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -11944,10 +11888,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -11961,10 +11905,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -11977,10 +11921,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -11994,10 +11938,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12011,10 +11955,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -12027,10 +11971,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12043,10 +11987,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12057,7 +12001,6 @@ export namespace Prisma {
   export type SBCLecturerCreateInput = {
     name: string
     profession_id: string
-    address?: string | null
     email: string
     whatsapp: string
     photo: string
@@ -12068,7 +12011,6 @@ export namespace Prisma {
     id?: number
     name: string
     profession_id: string
-    address?: string | null
     email: string
     whatsapp: string
     photo: string
@@ -12078,7 +12020,6 @@ export namespace Prisma {
   export type SBCLecturerUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12089,7 +12030,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12100,7 +12040,6 @@ export namespace Prisma {
     id?: number
     name: string
     profession_id: string
-    address?: string | null
     email: string
     whatsapp: string
     photo: string
@@ -12109,7 +12048,6 @@ export namespace Prisma {
   export type SBCLecturerUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12119,7 +12057,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -12659,8 +12596,6 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
-    university_address?: SortOrder
-    study_address?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -12679,8 +12614,6 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
-    university_address?: SortOrder
-    study_address?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -12693,8 +12626,6 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
-    university_address?: SortOrder
-    study_address?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -12763,20 +12694,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter
   }
 
-  export type StringNullableFilter = {
-    equals?: string | null
-    in?: Enumerable<string> | null
-    notIn?: Enumerable<string> | null
-    lt?: string
-    lte?: string
-    gt?: string
-    gte?: string
-    contains?: string
-    startsWith?: string
-    endsWith?: string
-    not?: NestedStringNullableFilter | string | null
-  }
-
   export type SBCTeamRelationFilter = {
     is?: SBCTeamWhereInput | null
     isNot?: SBCTeamWhereInput | null
@@ -12788,10 +12705,10 @@ export namespace Prisma {
     student_id?: SortOrder
     study_major?: SortOrder
     semester?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     line_id?: SortOrder
+    twibbon_proof?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
     photo?: SortOrder
@@ -12811,10 +12728,10 @@ export namespace Prisma {
     student_id?: SortOrder
     study_major?: SortOrder
     semester?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     line_id?: SortOrder
+    twibbon_proof?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
     photo?: SortOrder
@@ -12828,10 +12745,10 @@ export namespace Prisma {
     student_id?: SortOrder
     study_major?: SortOrder
     semester?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     line_id?: SortOrder
+    twibbon_proof?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
     photo?: SortOrder
@@ -12845,28 +12762,10 @@ export namespace Prisma {
     team_id?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter = {
-    equals?: string | null
-    in?: Enumerable<string> | null
-    notIn?: Enumerable<string> | null
-    lt?: string
-    lte?: string
-    gt?: string
-    gte?: string
-    contains?: string
-    startsWith?: string
-    endsWith?: string
-    not?: NestedStringNullableWithAggregatesFilter | string | null
-    _count?: NestedIntNullableFilter
-    _min?: NestedStringNullableFilter
-    _max?: NestedStringNullableFilter
-  }
-
   export type SBCLecturerCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     profession_id?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     photo?: SortOrder
@@ -12880,7 +12779,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     profession_id?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     photo?: SortOrder
@@ -12890,7 +12788,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     profession_id?: SortOrder
-    address?: SortOrder
     email?: SortOrder
     whatsapp?: SortOrder
     photo?: SortOrder
@@ -13292,10 +13189,6 @@ export namespace Prisma {
     connect?: SBCTeamWhereUniqueInput
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type SBCTeamUpdateOneRequiredWithoutMembersNestedInput = {
     create?: XOR<SBCTeamCreateWithoutMembersInput, SBCTeamUncheckedCreateWithoutMembersInput>
     connectOrCreate?: SBCTeamCreateOrConnectWithoutMembersInput
@@ -13633,57 +13526,15 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter
   }
 
-  export type NestedStringNullableFilter = {
-    equals?: string | null
-    in?: Enumerable<string> | null
-    notIn?: Enumerable<string> | null
-    lt?: string
-    lte?: string
-    gt?: string
-    gte?: string
-    contains?: string
-    startsWith?: string
-    endsWith?: string
-    not?: NestedStringNullableFilter | string | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter = {
-    equals?: string | null
-    in?: Enumerable<string> | null
-    notIn?: Enumerable<string> | null
-    lt?: string
-    lte?: string
-    gt?: string
-    gte?: string
-    contains?: string
-    startsWith?: string
-    endsWith?: string
-    not?: NestedStringNullableWithAggregatesFilter | string | null
-    _count?: NestedIntNullableFilter
-    _min?: NestedStringNullableFilter
-    _max?: NestedStringNullableFilter
-  }
-
-  export type NestedIntNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableFilter | number | null
-  }
-
   export type SBCMemberCreateWithoutTeamInput = {
     name: string
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -13696,10 +13547,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -13719,7 +13570,6 @@ export namespace Prisma {
   export type SBCLecturerCreateWithoutTeamInput = {
     name: string
     profession_id: string
-    address?: string | null
     email: string
     whatsapp: string
     photo: string
@@ -13729,7 +13579,6 @@ export namespace Prisma {
     id?: number
     name: string
     profession_id: string
-    address?: string | null
     email: string
     whatsapp: string
     photo: string
@@ -13781,10 +13630,10 @@ export namespace Prisma {
     student_id?: StringFilter | string
     study_major?: StringFilter | string
     semester?: IntFilter | number
-    address?: StringNullableFilter | string | null
     email?: StringFilter | string
     whatsapp?: StringFilter | string
     line_id?: StringFilter | string
+    twibbon_proof?: StringFilter | string
     student_card?: StringFilter | string
     student_proof?: StringFilter | string
     photo?: StringFilter | string
@@ -13800,7 +13649,6 @@ export namespace Prisma {
   export type SBCLecturerUpdateWithoutTeamInput = {
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -13810,7 +13658,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     profession_id?: StringFieldUpdateOperationsInput | string
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -13836,8 +13683,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
     truth_statement: boolean
@@ -13850,8 +13695,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -13873,8 +13716,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13887,8 +13728,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13900,8 +13739,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
     truth_statement: boolean
@@ -13914,8 +13751,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     payment_proof_id: number
     truth_statement: boolean
@@ -13937,8 +13772,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13951,8 +13784,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13964,8 +13795,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     truth_statement: boolean
@@ -13978,8 +13807,6 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
-    university_address: string
-    study_address: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     lecturer_id: number
     truth_statement: boolean
@@ -14025,8 +13852,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -14039,8 +13864,6 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
-    university_address?: StringFieldUpdateOperationsInput | string
-    study_address?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     lecturer_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -14349,10 +14172,10 @@ export namespace Prisma {
     student_id: string
     study_major: string
     semester: number
-    address?: string | null
     email: string
     whatsapp: string
     line_id: string
+    twibbon_proof: string
     student_card: string
     student_proof: string
     photo: string
@@ -14364,10 +14187,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -14380,10 +14203,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
@@ -14396,10 +14219,10 @@ export namespace Prisma {
     student_id?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     semester?: IntFieldUpdateOperationsInput | number
-    address?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     whatsapp?: StringFieldUpdateOperationsInput | string
     line_id?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string

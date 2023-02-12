@@ -16,31 +16,24 @@ serviceRouter.use(
   })
 );
 
-//serviceRouter.use(cors());
+serviceRouter.put("/", async (req, res) => {
+  const data = req.body;
 
-serviceRouter.put(
-  "/",
+  try {
+    await prisma.service.update({
+      where: {
+        service: data.service,
+      },
+      data: {
+        active: data.active,
+      },
+    });
 
-  async (req, res) => {
-    const data = req.body;
-
-    try {
-      await prisma.service.update({
-        where: {
-          service: data.service,
-        },
-        data: {
-          active: data.active,
-        },
-      });
-
-      res.status(200).json({ success: true });
-    } catch (error) {
-      console.log(error);
-      res.status(400).json({ success: false });
-    }
+    res.status(200).json({ success: true });
+  } catch (error) {
+    res.status(400).json(error);
   }
-);
+});
 
 serviceRouter.get("/", async (req, res) => {
   const { service } = req.query;
@@ -54,7 +47,7 @@ serviceRouter.get("/", async (req, res) => {
 
     res.status(200).json(serviceData);
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json(error);
   }
 });
 

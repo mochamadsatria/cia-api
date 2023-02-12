@@ -33,7 +33,7 @@ announcementRouter.post(
 
       res.status(200).json({ success: true });
     } catch (error) {
-      res.status(400).json({ success: false });
+      res.status(400).json(error);
     }
   }
 );
@@ -57,7 +57,7 @@ announcementRouter.put(
 
       res.status(200).json({ success: true });
     } catch (error) {
-      res.status(400).json({ success: false });
+      res.status(400).json(error);
     }
   }
 );
@@ -74,7 +74,7 @@ announcementRouter.get("/", async (req, res) => {
 
     res.status(200).json(result);
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json(error);
   }
 });
 
@@ -93,7 +93,7 @@ announcementRouter.delete(
 
       res.status(200).json({ success: true });
     } catch (error) {
-      res.status(400).json({ success: false });
+      res.status(400).json(error);
     }
   }
 );

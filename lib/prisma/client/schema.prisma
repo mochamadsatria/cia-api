@@ -17,8 +17,6 @@ model SBCTeam {
   university  String
   team_name String
   bridge_name String
-  university_address  String
-  study_address String
 
   members SBCMember[]
 
@@ -39,10 +37,11 @@ model SBCMember {
   student_id  String
   study_major String
   semester  Int
-  address String?
   email String
   whatsapp  String
   line_id String
+
+  twibbon_proof String
   student_card String
   student_proof String
   photo String
@@ -57,7 +56,6 @@ model SBCLecturer {
   id  Int @id @default(autoincrement())
   name  String
   profession_id String
-  address String?
   email String
   whatsapp  String
   photo String

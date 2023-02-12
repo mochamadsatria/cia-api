@@ -36,8 +36,6 @@ sbcRouter.post("/", async (req, res) => {
           university: data.university,
           team_name: data.team_name,
           bridge_name: data.bridge_name,
-          university_address: data.university_address,
-          study_address: data.study_address,
           members: {
             create: data.members.map((member: any) => ({
               name: member.name,
@@ -46,10 +44,10 @@ sbcRouter.post("/", async (req, res) => {
               line_id: member.line_id,
               student_card: member.student_card,
               student_proof: member.student_proof,
+              twibbon_proof: member.twibbon_proof,
               photo: member.photo,
               study_major: member.study_major,
               is_leader: member.is_leader,
-              address: member.address,
               student_id: member.student_id,
               semester: member.semester,
             })),
@@ -58,7 +56,6 @@ sbcRouter.post("/", async (req, res) => {
             create: {
               name: data.lecturer.name,
               profession_id: data.lecturer.profession_id,
-              address: data.lecturer.address,
               email: data.lecturer.email,
               whatsapp: data.lecturer.whatsapp,
               photo: data.lecturer.photo,
