@@ -18,6 +18,8 @@ model SBCTeam {
   team_name String
   bridge_name String
 
+  voucher_proof String
+
   members SBCMember[]
 
   lecturer  SBCLecturer @relation(fields: [lecturer_id], references: [id])

@@ -9,7 +9,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-  //shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model SBCTeam {
@@ -17,6 +17,8 @@ model SBCTeam {
   university  String
   team_name String
   bridge_name String
+
+  voucher_proof String
 
   members SBCMember[]
 

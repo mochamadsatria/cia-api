@@ -19,6 +19,7 @@ export type SBCTeam = {
   university: string
   team_name: string
   bridge_name: string
+  voucher_proof: string
   lecturer_id: number
   payment_proof_id: number
   truth_statement: boolean
@@ -1175,6 +1176,7 @@ export namespace Prisma {
     university: string | null
     team_name: string | null
     bridge_name: string | null
+    voucher_proof: string | null
     lecturer_id: number | null
     payment_proof_id: number | null
     truth_statement: boolean | null
@@ -1187,6 +1189,7 @@ export namespace Prisma {
     university: string | null
     team_name: string | null
     bridge_name: string | null
+    voucher_proof: string | null
     lecturer_id: number | null
     payment_proof_id: number | null
     truth_statement: boolean | null
@@ -1199,6 +1202,7 @@ export namespace Prisma {
     university: number
     team_name: number
     bridge_name: number
+    voucher_proof: number
     lecturer_id: number
     payment_proof_id: number
     truth_statement: number
@@ -1225,6 +1229,7 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
+    voucher_proof?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1237,6 +1242,7 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
+    voucher_proof?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1249,6 +1255,7 @@ export namespace Prisma {
     university?: true
     team_name?: true
     bridge_name?: true
+    voucher_proof?: true
     lecturer_id?: true
     payment_proof_id?: true
     truth_statement?: true
@@ -1349,6 +1356,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -1380,6 +1388,7 @@ export namespace Prisma {
     university?: boolean
     team_name?: boolean
     bridge_name?: boolean
+    voucher_proof?: boolean
     members?: boolean | SBCTeam$membersArgs
     lecturer?: boolean | SBCLecturerArgs
     lecturer_id?: boolean
@@ -11156,6 +11165,7 @@ export namespace Prisma {
     university: 'university',
     team_name: 'team_name',
     bridge_name: 'bridge_name',
+    voucher_proof: 'voucher_proof',
     lecturer_id: 'lecturer_id',
     payment_proof_id: 'payment_proof_id',
     truth_statement: 'truth_statement',
@@ -11206,6 +11216,7 @@ export namespace Prisma {
     university?: StringFilter | string
     team_name?: StringFilter | string
     bridge_name?: StringFilter | string
+    voucher_proof?: StringFilter | string
     members?: SBCMemberListRelationFilter
     lecturer?: XOR<SBCLecturerRelationFilter, SBCLecturerWhereInput>
     lecturer_id?: IntFilter | number
@@ -11221,6 +11232,7 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
+    voucher_proof?: SortOrder
     members?: SBCMemberOrderByRelationAggregateInput
     lecturer?: SBCLecturerOrderByWithRelationInput
     lecturer_id?: SortOrder
@@ -11242,6 +11254,7 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
+    voucher_proof?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -11262,6 +11275,7 @@ export namespace Prisma {
     university?: StringWithAggregatesFilter | string
     team_name?: StringWithAggregatesFilter | string
     bridge_name?: StringWithAggregatesFilter | string
+    voucher_proof?: StringWithAggregatesFilter | string
     lecturer_id?: IntWithAggregatesFilter | number
     payment_proof_id?: IntWithAggregatesFilter | number
     truth_statement?: BoolWithAggregatesFilter | boolean
@@ -11804,6 +11818,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
@@ -11817,6 +11832,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     lecturer_id: number
     payment_proof_id: number
@@ -11829,6 +11845,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
@@ -11842,6 +11859,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
@@ -11855,6 +11873,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -11866,6 +11885,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
     stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11876,6 +11896,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -12596,6 +12617,7 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
+    voucher_proof?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -12614,6 +12636,7 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
+    voucher_proof?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -12626,6 +12649,7 @@ export namespace Prisma {
     university?: SortOrder
     team_name?: SortOrder
     bridge_name?: SortOrder
+    voucher_proof?: SortOrder
     lecturer_id?: SortOrder
     payment_proof_id?: SortOrder
     truth_statement?: SortOrder
@@ -13683,6 +13707,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
     truth_statement: boolean
@@ -13695,6 +13720,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     lecturer_id: number
     payment_proof_id: number
     truth_statement: boolean
@@ -13716,6 +13742,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13728,6 +13755,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     lecturer_id?: IntFieldUpdateOperationsInput | number
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13739,6 +13767,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     payment_proof: PaymentCreateNestedOneWithoutSbc_teamInput
     truth_statement: boolean
@@ -13751,6 +13780,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     payment_proof_id: number
     truth_statement: boolean
@@ -13772,6 +13802,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     payment_proof?: PaymentUpdateOneRequiredWithoutSbc_teamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13784,6 +13815,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     payment_proof_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13795,6 +13827,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberCreateNestedManyWithoutTeamInput
     lecturer: SBCLecturerCreateNestedOneWithoutTeamInput
     truth_statement: boolean
@@ -13807,6 +13840,7 @@ export namespace Prisma {
     university: string
     team_name: string
     bridge_name: string
+    voucher_proof: string
     members?: SBCMemberUncheckedCreateNestedManyWithoutTeamInput
     lecturer_id: number
     truth_statement: boolean
@@ -13852,6 +13886,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUpdateManyWithoutTeamNestedInput
     lecturer?: SBCLecturerUpdateOneRequiredWithoutTeamNestedInput
     truth_statement?: BoolFieldUpdateOperationsInput | boolean
@@ -13864,6 +13899,7 @@ export namespace Prisma {
     university?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     bridge_name?: StringFieldUpdateOperationsInput | string
+    voucher_proof?: StringFieldUpdateOperationsInput | string
     members?: SBCMemberUncheckedUpdateManyWithoutTeamNestedInput
     lecturer_id?: IntFieldUpdateOperationsInput | number
     truth_statement?: BoolFieldUpdateOperationsInput | boolean

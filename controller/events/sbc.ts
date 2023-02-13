@@ -36,6 +36,7 @@ sbcRouter.post("/", async (req, res) => {
           university: data.university,
           team_name: data.team_name,
           bridge_name: data.bridge_name,
+          voucher_proof: data.voucher_proof,
           members: {
             create: data.members.map((member: any) => ({
               name: member.name,
