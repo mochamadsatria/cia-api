@@ -93,8 +93,9 @@ model FCECMember {
 
 model FCECTeam {
   id  Int @id @default(autoincrement())
+  
   school  String
-  lecturer_name String
+  
   abstract_title  String
   team_name String
   originality_letter  String
@@ -114,9 +115,11 @@ model CICMember {
   line_id String
   student_card String
   student_proof String
-  photo String
+  
   study_major String
   generation  String
+
+  twibbon_proof String
 
   is_leader Boolean
 

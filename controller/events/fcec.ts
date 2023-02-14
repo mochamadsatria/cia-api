@@ -33,7 +33,6 @@ fcecRouter.post("/", async (req, res) => {
       const result = await prisma.fCECTeam.create({
         data: {
           school: data.school,
-          lecturer_name: data.lecturer_name,
           abstract_title: data.abstract_title,
           abstract: data.abstract,
           team_name: data.team_name,

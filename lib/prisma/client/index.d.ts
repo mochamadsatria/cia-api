@@ -95,7 +95,6 @@ export type FCECMember = {
 export type FCECTeam = {
   id: number
   school: string
-  lecturer_name: string
   abstract_title: string
   team_name: string
   originality_letter: string
@@ -115,9 +114,9 @@ export type CICMember = {
   line_id: string
   student_card: string
   student_proof: string
-  photo: string
   study_major: string
   generation: string
+  twibbon_proof: string
   is_leader: boolean
   team_id: number
 }
@@ -6202,7 +6201,6 @@ export namespace Prisma {
   export type FCECTeamMinAggregateOutputType = {
     id: number | null
     school: string | null
-    lecturer_name: string | null
     abstract_title: string | null
     team_name: string | null
     originality_letter: string | null
@@ -6213,7 +6211,6 @@ export namespace Prisma {
   export type FCECTeamMaxAggregateOutputType = {
     id: number | null
     school: string | null
-    lecturer_name: string | null
     abstract_title: string | null
     team_name: string | null
     originality_letter: string | null
@@ -6224,7 +6221,6 @@ export namespace Prisma {
   export type FCECTeamCountAggregateOutputType = {
     id: number
     school: number
-    lecturer_name: number
     abstract_title: number
     team_name: number
     originality_letter: number
@@ -6245,7 +6241,6 @@ export namespace Prisma {
   export type FCECTeamMinAggregateInputType = {
     id?: true
     school?: true
-    lecturer_name?: true
     abstract_title?: true
     team_name?: true
     originality_letter?: true
@@ -6256,7 +6251,6 @@ export namespace Prisma {
   export type FCECTeamMaxAggregateInputType = {
     id?: true
     school?: true
-    lecturer_name?: true
     abstract_title?: true
     team_name?: true
     originality_letter?: true
@@ -6267,7 +6261,6 @@ export namespace Prisma {
   export type FCECTeamCountAggregateInputType = {
     id?: true
     school?: true
-    lecturer_name?: true
     abstract_title?: true
     team_name?: true
     originality_letter?: true
@@ -6366,7 +6359,6 @@ export namespace Prisma {
   export type FCECTeamGroupByOutputType = {
     id: number
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -6396,7 +6388,6 @@ export namespace Prisma {
   export type FCECTeamSelect = {
     id?: boolean
     school?: boolean
-    lecturer_name?: boolean
     abstract_title?: boolean
     team_name?: boolean
     originality_letter?: boolean
@@ -7223,9 +7214,9 @@ export namespace Prisma {
     line_id: string | null
     student_card: string | null
     student_proof: string | null
-    photo: string | null
     study_major: string | null
     generation: string | null
+    twibbon_proof: string | null
     is_leader: boolean | null
     team_id: number | null
   }
@@ -7238,9 +7229,9 @@ export namespace Prisma {
     line_id: string | null
     student_card: string | null
     student_proof: string | null
-    photo: string | null
     study_major: string | null
     generation: string | null
+    twibbon_proof: string | null
     is_leader: boolean | null
     team_id: number | null
   }
@@ -7253,9 +7244,9 @@ export namespace Prisma {
     line_id: number
     student_card: number
     student_proof: number
-    photo: number
     study_major: number
     generation: number
+    twibbon_proof: number
     is_leader: number
     team_id: number
     _all: number
@@ -7280,9 +7271,9 @@ export namespace Prisma {
     line_id?: true
     student_card?: true
     student_proof?: true
-    photo?: true
     study_major?: true
     generation?: true
+    twibbon_proof?: true
     is_leader?: true
     team_id?: true
   }
@@ -7295,9 +7286,9 @@ export namespace Prisma {
     line_id?: true
     student_card?: true
     student_proof?: true
-    photo?: true
     study_major?: true
     generation?: true
+    twibbon_proof?: true
     is_leader?: true
     team_id?: true
   }
@@ -7310,9 +7301,9 @@ export namespace Prisma {
     line_id?: true
     student_card?: true
     student_proof?: true
-    photo?: true
     study_major?: true
     generation?: true
+    twibbon_proof?: true
     is_leader?: true
     team_id?: true
     _all?: true
@@ -7413,9 +7404,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
     team_id: number
     _count: CICMemberCountAggregateOutputType | null
@@ -7447,9 +7438,9 @@ export namespace Prisma {
     line_id?: boolean
     student_card?: boolean
     student_proof?: boolean
-    photo?: boolean
     study_major?: boolean
     generation?: boolean
+    twibbon_proof?: boolean
     is_leader?: boolean
     team?: boolean | CICTeamArgs
     team_id?: boolean
@@ -11066,9 +11057,9 @@ export namespace Prisma {
     line_id: 'line_id',
     student_card: 'student_card',
     student_proof: 'student_proof',
-    photo: 'photo',
     study_major: 'study_major',
     generation: 'generation',
+    twibbon_proof: 'twibbon_proof',
     is_leader: 'is_leader',
     team_id: 'team_id'
   };
@@ -11109,7 +11100,6 @@ export namespace Prisma {
   export const FCECTeamScalarFieldEnum: {
     id: 'id',
     school: 'school',
-    lecturer_name: 'lecturer_name',
     abstract_title: 'abstract_title',
     team_name: 'team_name',
     originality_letter: 'originality_letter',
@@ -11539,7 +11529,6 @@ export namespace Prisma {
     NOT?: Enumerable<FCECTeamWhereInput>
     id?: IntFilter | number
     school?: StringFilter | string
-    lecturer_name?: StringFilter | string
     abstract_title?: StringFilter | string
     team_name?: StringFilter | string
     originality_letter?: StringFilter | string
@@ -11551,7 +11540,6 @@ export namespace Prisma {
   export type FCECTeamOrderByWithRelationInput = {
     id?: SortOrder
     school?: SortOrder
-    lecturer_name?: SortOrder
     abstract_title?: SortOrder
     team_name?: SortOrder
     originality_letter?: SortOrder
@@ -11567,7 +11555,6 @@ export namespace Prisma {
   export type FCECTeamOrderByWithAggregationInput = {
     id?: SortOrder
     school?: SortOrder
-    lecturer_name?: SortOrder
     abstract_title?: SortOrder
     team_name?: SortOrder
     originality_letter?: SortOrder
@@ -11586,7 +11573,6 @@ export namespace Prisma {
     NOT?: Enumerable<FCECTeamScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
     school?: StringWithAggregatesFilter | string
-    lecturer_name?: StringWithAggregatesFilter | string
     abstract_title?: StringWithAggregatesFilter | string
     team_name?: StringWithAggregatesFilter | string
     originality_letter?: StringWithAggregatesFilter | string
@@ -11605,9 +11591,9 @@ export namespace Prisma {
     line_id?: StringFilter | string
     student_card?: StringFilter | string
     student_proof?: StringFilter | string
-    photo?: StringFilter | string
     study_major?: StringFilter | string
     generation?: StringFilter | string
+    twibbon_proof?: StringFilter | string
     is_leader?: BoolFilter | boolean
     team?: XOR<CICTeamRelationFilter, CICTeamWhereInput>
     team_id?: IntFilter | number
@@ -11621,9 +11607,9 @@ export namespace Prisma {
     line_id?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
-    photo?: SortOrder
     study_major?: SortOrder
     generation?: SortOrder
+    twibbon_proof?: SortOrder
     is_leader?: SortOrder
     team?: CICTeamOrderByWithRelationInput
     team_id?: SortOrder
@@ -11641,9 +11627,9 @@ export namespace Prisma {
     line_id?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
-    photo?: SortOrder
     study_major?: SortOrder
     generation?: SortOrder
+    twibbon_proof?: SortOrder
     is_leader?: SortOrder
     team_id?: SortOrder
     _count?: CICMemberCountOrderByAggregateInput
@@ -11664,9 +11650,9 @@ export namespace Prisma {
     line_id?: StringWithAggregatesFilter | string
     student_card?: StringWithAggregatesFilter | string
     student_proof?: StringWithAggregatesFilter | string
-    photo?: StringWithAggregatesFilter | string
     study_major?: StringWithAggregatesFilter | string
     generation?: StringWithAggregatesFilter | string
+    twibbon_proof?: StringWithAggregatesFilter | string
     is_leader?: BoolWithAggregatesFilter | boolean
     team_id?: IntWithAggregatesFilter | number
   }
@@ -12219,7 +12205,6 @@ export namespace Prisma {
 
   export type FCECTeamCreateInput = {
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -12231,7 +12216,6 @@ export namespace Prisma {
   export type FCECTeamUncheckedCreateInput = {
     id?: number
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -12242,7 +12226,6 @@ export namespace Prisma {
 
   export type FCECTeamUpdateInput = {
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -12254,7 +12237,6 @@ export namespace Prisma {
   export type FCECTeamUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -12266,7 +12248,6 @@ export namespace Prisma {
   export type FCECTeamCreateManyInput = {
     id?: number
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -12276,7 +12257,6 @@ export namespace Prisma {
 
   export type FCECTeamUpdateManyMutationInput = {
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -12287,7 +12267,6 @@ export namespace Prisma {
   export type FCECTeamUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -12302,9 +12281,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
     team: CICTeamCreateNestedOneWithoutMembersInput
   }
@@ -12317,9 +12296,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
     team_id: number
   }
@@ -12331,9 +12310,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
     team?: CICTeamUpdateOneRequiredWithoutMembersNestedInput
   }
@@ -12346,9 +12325,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
     team_id?: IntFieldUpdateOperationsInput | number
   }
@@ -12361,9 +12340,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
     team_id: number
   }
@@ -12375,9 +12354,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -12389,9 +12368,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
     team_id?: IntFieldUpdateOperationsInput | number
   }
@@ -12919,7 +12898,6 @@ export namespace Prisma {
   export type FCECTeamCountOrderByAggregateInput = {
     id?: SortOrder
     school?: SortOrder
-    lecturer_name?: SortOrder
     abstract_title?: SortOrder
     team_name?: SortOrder
     originality_letter?: SortOrder
@@ -12934,7 +12912,6 @@ export namespace Prisma {
   export type FCECTeamMaxOrderByAggregateInput = {
     id?: SortOrder
     school?: SortOrder
-    lecturer_name?: SortOrder
     abstract_title?: SortOrder
     team_name?: SortOrder
     originality_letter?: SortOrder
@@ -12945,7 +12922,6 @@ export namespace Prisma {
   export type FCECTeamMinOrderByAggregateInput = {
     id?: SortOrder
     school?: SortOrder
-    lecturer_name?: SortOrder
     abstract_title?: SortOrder
     team_name?: SortOrder
     originality_letter?: SortOrder
@@ -12965,9 +12941,9 @@ export namespace Prisma {
     line_id?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
-    photo?: SortOrder
     study_major?: SortOrder
     generation?: SortOrder
+    twibbon_proof?: SortOrder
     is_leader?: SortOrder
     team_id?: SortOrder
   }
@@ -12985,9 +12961,9 @@ export namespace Prisma {
     line_id?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
-    photo?: SortOrder
     study_major?: SortOrder
     generation?: SortOrder
+    twibbon_proof?: SortOrder
     is_leader?: SortOrder
     team_id?: SortOrder
   }
@@ -13000,9 +12976,9 @@ export namespace Prisma {
     line_id?: SortOrder
     student_card?: SortOrder
     student_proof?: SortOrder
-    photo?: SortOrder
     study_major?: SortOrder
     generation?: SortOrder
+    twibbon_proof?: SortOrder
     is_leader?: SortOrder
     team_id?: SortOrder
   }
@@ -13933,7 +13909,6 @@ export namespace Prisma {
 
   export type FCECTeamCreateWithoutMembersInput = {
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -13944,7 +13919,6 @@ export namespace Prisma {
   export type FCECTeamUncheckedCreateWithoutMembersInput = {
     id?: number
     school: string
-    lecturer_name: string
     abstract_title: string
     team_name: string
     originality_letter: string
@@ -13964,7 +13938,6 @@ export namespace Prisma {
 
   export type FCECTeamUpdateWithoutMembersInput = {
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -13975,7 +13948,6 @@ export namespace Prisma {
   export type FCECTeamUncheckedUpdateWithoutMembersInput = {
     id?: IntFieldUpdateOperationsInput | number
     school?: StringFieldUpdateOperationsInput | string
-    lecturer_name?: StringFieldUpdateOperationsInput | string
     abstract_title?: StringFieldUpdateOperationsInput | string
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
@@ -14122,9 +14094,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
   }
 
@@ -14136,9 +14108,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
   }
 
@@ -14195,9 +14167,9 @@ export namespace Prisma {
     line_id?: StringFilter | string
     student_card?: StringFilter | string
     student_proof?: StringFilter | string
-    photo?: StringFilter | string
     study_major?: StringFilter | string
     generation?: StringFilter | string
+    twibbon_proof?: StringFilter | string
     is_leader?: BoolFilter | boolean
     team_id?: IntFilter | number
   }
@@ -14324,9 +14296,9 @@ export namespace Prisma {
     line_id: string
     student_card: string
     student_proof: string
-    photo: string
     study_major: string
     generation: string
+    twibbon_proof: string
     is_leader: boolean
   }
 
@@ -14337,9 +14309,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -14351,9 +14323,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -14365,9 +14337,9 @@ export namespace Prisma {
     line_id?: StringFieldUpdateOperationsInput | string
     student_card?: StringFieldUpdateOperationsInput | string
     student_proof?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
     study_major?: StringFieldUpdateOperationsInput | string
     generation?: StringFieldUpdateOperationsInput | string
+    twibbon_proof?: StringFieldUpdateOperationsInput | string
     is_leader?: BoolFieldUpdateOperationsInput | boolean
   }
 
