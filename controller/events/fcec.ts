@@ -50,6 +50,8 @@ fcecRouter.post("/", async (req, res) => {
               is_leader: member.is_leader,
             })),
           },
+          truth_statement: data.truth_statement,
+          stc_statement: data.stc_statement,
           finalized_at: dayjs().format().toString(),
         },
       });

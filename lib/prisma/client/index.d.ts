@@ -99,6 +99,8 @@ export type FCECTeam = {
   team_name: string
   originality_letter: string
   abstract: string
+  truth_statement: boolean
+  stc_statement: boolean
   finalized_at: Date
 }
 
@@ -6205,6 +6207,8 @@ export namespace Prisma {
     team_name: string | null
     originality_letter: string | null
     abstract: string | null
+    truth_statement: boolean | null
+    stc_statement: boolean | null
     finalized_at: Date | null
   }
 
@@ -6215,6 +6219,8 @@ export namespace Prisma {
     team_name: string | null
     originality_letter: string | null
     abstract: string | null
+    truth_statement: boolean | null
+    stc_statement: boolean | null
     finalized_at: Date | null
   }
 
@@ -6225,6 +6231,8 @@ export namespace Prisma {
     team_name: number
     originality_letter: number
     abstract: number
+    truth_statement: number
+    stc_statement: number
     finalized_at: number
     _all: number
   }
@@ -6245,6 +6253,8 @@ export namespace Prisma {
     team_name?: true
     originality_letter?: true
     abstract?: true
+    truth_statement?: true
+    stc_statement?: true
     finalized_at?: true
   }
 
@@ -6255,6 +6265,8 @@ export namespace Prisma {
     team_name?: true
     originality_letter?: true
     abstract?: true
+    truth_statement?: true
+    stc_statement?: true
     finalized_at?: true
   }
 
@@ -6265,6 +6277,8 @@ export namespace Prisma {
     team_name?: true
     originality_letter?: true
     abstract?: true
+    truth_statement?: true
+    stc_statement?: true
     finalized_at?: true
     _all?: true
   }
@@ -6363,6 +6377,8 @@ export namespace Prisma {
     team_name: string
     originality_letter: string
     abstract: string
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date
     _count: FCECTeamCountAggregateOutputType | null
     _avg: FCECTeamAvgAggregateOutputType | null
@@ -6393,6 +6409,8 @@ export namespace Prisma {
     originality_letter?: boolean
     abstract?: boolean
     members?: boolean | FCECTeam$membersArgs
+    truth_statement?: boolean
+    stc_statement?: boolean
     finalized_at?: boolean
     _count?: boolean | FCECTeamCountOutputTypeArgs
   }
@@ -11104,6 +11122,8 @@ export namespace Prisma {
     team_name: 'team_name',
     originality_letter: 'originality_letter',
     abstract: 'abstract',
+    truth_statement: 'truth_statement',
+    stc_statement: 'stc_statement',
     finalized_at: 'finalized_at'
   };
 
@@ -11534,6 +11554,8 @@ export namespace Prisma {
     originality_letter?: StringFilter | string
     abstract?: StringFilter | string
     members?: FCECMemberListRelationFilter
+    truth_statement?: BoolFilter | boolean
+    stc_statement?: BoolFilter | boolean
     finalized_at?: DateTimeFilter | Date | string
   }
 
@@ -11545,6 +11567,8 @@ export namespace Prisma {
     originality_letter?: SortOrder
     abstract?: SortOrder
     members?: FCECMemberOrderByRelationAggregateInput
+    truth_statement?: SortOrder
+    stc_statement?: SortOrder
     finalized_at?: SortOrder
   }
 
@@ -11559,6 +11583,8 @@ export namespace Prisma {
     team_name?: SortOrder
     originality_letter?: SortOrder
     abstract?: SortOrder
+    truth_statement?: SortOrder
+    stc_statement?: SortOrder
     finalized_at?: SortOrder
     _count?: FCECTeamCountOrderByAggregateInput
     _avg?: FCECTeamAvgOrderByAggregateInput
@@ -11577,6 +11603,8 @@ export namespace Prisma {
     team_name?: StringWithAggregatesFilter | string
     originality_letter?: StringWithAggregatesFilter | string
     abstract?: StringWithAggregatesFilter | string
+    truth_statement?: BoolWithAggregatesFilter | boolean
+    stc_statement?: BoolWithAggregatesFilter | boolean
     finalized_at?: DateTimeWithAggregatesFilter | Date | string
   }
 
@@ -12210,6 +12238,8 @@ export namespace Prisma {
     originality_letter: string
     abstract: string
     members?: FCECMemberCreateNestedManyWithoutTeamInput
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date | string
   }
 
@@ -12221,6 +12251,8 @@ export namespace Prisma {
     originality_letter: string
     abstract: string
     members?: FCECMemberUncheckedCreateNestedManyWithoutTeamInput
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date | string
   }
 
@@ -12231,6 +12263,8 @@ export namespace Prisma {
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
     members?: FCECMemberUpdateManyWithoutTeamNestedInput
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -12242,6 +12276,8 @@ export namespace Prisma {
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
     members?: FCECMemberUncheckedUpdateManyWithoutTeamNestedInput
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -12252,6 +12288,8 @@ export namespace Prisma {
     team_name: string
     originality_letter: string
     abstract: string
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date | string
   }
 
@@ -12261,6 +12299,8 @@ export namespace Prisma {
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -12271,6 +12311,8 @@ export namespace Prisma {
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -12902,6 +12944,8 @@ export namespace Prisma {
     team_name?: SortOrder
     originality_letter?: SortOrder
     abstract?: SortOrder
+    truth_statement?: SortOrder
+    stc_statement?: SortOrder
     finalized_at?: SortOrder
   }
 
@@ -12916,6 +12960,8 @@ export namespace Prisma {
     team_name?: SortOrder
     originality_letter?: SortOrder
     abstract?: SortOrder
+    truth_statement?: SortOrder
+    stc_statement?: SortOrder
     finalized_at?: SortOrder
   }
 
@@ -12926,6 +12972,8 @@ export namespace Prisma {
     team_name?: SortOrder
     originality_letter?: SortOrder
     abstract?: SortOrder
+    truth_statement?: SortOrder
+    stc_statement?: SortOrder
     finalized_at?: SortOrder
   }
 
@@ -13913,6 +13961,8 @@ export namespace Prisma {
     team_name: string
     originality_letter: string
     abstract: string
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date | string
   }
 
@@ -13923,6 +13973,8 @@ export namespace Prisma {
     team_name: string
     originality_letter: string
     abstract: string
+    truth_statement: boolean
+    stc_statement: boolean
     finalized_at: Date | string
   }
 
@@ -13942,6 +13994,8 @@ export namespace Prisma {
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -13952,6 +14006,8 @@ export namespace Prisma {
     team_name?: StringFieldUpdateOperationsInput | string
     originality_letter?: StringFieldUpdateOperationsInput | string
     abstract?: StringFieldUpdateOperationsInput | string
+    truth_statement?: BoolFieldUpdateOperationsInput | boolean
+    stc_statement?: BoolFieldUpdateOperationsInput | boolean
     finalized_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

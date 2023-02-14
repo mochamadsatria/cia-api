@@ -104,6 +104,8 @@ model FCECTeam {
 
   members FCECMember[]
 
+  truth_statement Boolean
+  stc_statement Boolean
   finalized_at  DateTime
 }
 
