@@ -59,9 +59,9 @@ fcecRouter.post("/", async (req, res) => {
       if (result)
         await transporter
           .sendMail({
-            from: '"CIC CIA UGM" <noreply@ciaugm.com>', // sender address
+            from: '"FCEC CIA UGM" <noreply@ciaugm.com>', // sender address
             to: data.members.map((member: any) => member.email).toString(),
-            subject: "Konfirmasi Registrasi ", // Subject line
+            subject: "Konfirmasi Pendaftaran FCEC 2023 ", // Subject line
             text: "Terimakasih telah melakukan registrasi FCEC", // plain text body
             html: fCECRegisHtmlTemplate(), // html body
           })

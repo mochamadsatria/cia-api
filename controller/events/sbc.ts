@@ -18,6 +18,8 @@ sbcRouter.use(
   })
 );
 
+//sbcRouter.use(cors());
+
 sbcRouter.post("/", async (req, res) => {
   const service = await prisma.service.findFirst({
     where: {
@@ -29,6 +31,50 @@ sbcRouter.post("/", async (req, res) => {
     res.status(400).send("SBC Tidak aktif menerima pendaftaran!");
   else {
     const data = req.body;
+
+    /*const result = await prisma.sBCTeam.create({
+      data: {
+        university: data.university,
+        team_name: data.team_name,
+        bridge_name: data.bridge_name,
+        voucher_proof: data.voucher_proof,
+        members: {
+          create: data.members.map((member: any) => ({
+            name: member.name,
+            email: member.email,
+            whatsapp: member.whatsapp,
+            line_id: member.line_id,
+            student_card: member.student_card,
+            student_proof: member.student_proof,
+            twibbon_proof: member.twibbon_proof,
+            photo: member.photo,
+            study_major: member.study_major,
+            is_leader: member.is_leader,
+            student_id: member.student_id,
+            semester: parseInt(member.semester),
+          })),
+        },
+        lecturer: {
+          create: {
+            name: data.lecturer.name,
+            profession_id: data.lecturer.profession_id,
+            email: data.lecturer.email,
+            whatsapp: data.lecturer.whatsapp,
+            photo: data.lecturer.photo,
+          },
+        },
+        payment_proof: {
+          create: {
+            proof: data.payment_proof,
+          },
+        },
+        truth_statement: data.truth_statement,
+        stc_statement: data.stc_statement,
+        finalized_at: dayjs().format().toString(),
+      },
+    });
+
+    console.log(result);*/
 
     try {
       const result = await prisma.sBCTeam.create({
@@ -85,6 +131,8 @@ sbcRouter.post("/", async (req, res) => {
           .then(() => {
             return res.status(200).json({ success: true });
           });
+
+      if (result) return res.status(200).json({ success: true });
     } catch (error) {
       res.status(400).json(error);
     }
